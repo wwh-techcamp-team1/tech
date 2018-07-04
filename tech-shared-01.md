@@ -117,3 +117,31 @@ public static List<Car> getWinners(List<Car> cars, int max) {
 }
 ```
 
+- 우승자 리스트를 받아서 우승자 텍스트 출력하기
+
+아래처럼 하면 된다. `map()`으로 타입 `Car` 에서 `String` 타입인 `car.getName()` 으로 변경하고 `collect(Collectors.joining(","))`를 통해 `pobi,crong` 이런식으로 이름을 추출해 사이에 `,`를 넣어 구분해 줄 수 있다.
+
+```java
+public static String getWinnerText(List<Car> winners) {
+    return winners.stream().map((car) -> car.getName()).collect(Collectors.joining(","));
+}
+```
+
+- - -
+
+스트림 예제(..foreach)
+
+- 우승자 이름을 그냥 출력해보기
+
+```java
+public static void printWinnerNames(List<Car> winners) {
+	winners.stream().map((car) -> car.getName()).forEach((name) -> System.out.println(name));
+    //위의 코드와 아래 코드는 같은 역할을 한다. winners에 든 car를 출력해주는 역할
+    for(Car car : winners) {
+        System.out.println(car.getName());
+    }
+}
+
+
+```
+
