@@ -37,28 +37,30 @@
        이 연산은 앞선 지연 연산(lazy operation)들의 실행을 강제한다.  
        이후로는 해당 스트림을 더는 사용할 수 없다.
        
-### 스트림의 연산
-   * 중간 연산
-   | 중간 연산 | 설명 ||
-   | :--- | :--- ||
-   | `Stream < T > distinct()` | 중복 제거 ||
-   | `Stream < T > filter(Predicate < T > predicate)` | 조건에 안 맞는 요소 제외 ||
-   | `Stream < T > limit(long maxSize)` | 스트림의 일부 잘라내기 ||
-   | `Stream < T > skip(ling n)` | 스트림의 일부 건너뛰기 ||
-   | `Stream < T > peek(Consumer< T > action)` | 스트림의 요소에 작업수행 ||
-   | `Stream < T > sorted()` | 스트림의 요소 정렬 ||
+### 스트림의 주요 연산
+   * 중간 연산  
+ 
+   | 중간 연산 | 설명 |
+   | :--- | :--- |
+   | `Stream < T > distinct()` | 중복 제거 |
+   | `Stream < T > filter(Predicate < T > predicate)` | 조건에 안 맞는 요소 제외 |
+   | `Stream < T > limit(long maxSize)` | 스트림의 일부 잘라내기 |
+   | `Stream < T > skip(ling n)` | 스트림의 일부 건너뛰기 |
+   | `Stream < T > peek(Consumer< T > action)` | 스트림의 요소에 작업수행 |
+   | `Stream < T > sorted()` | 스트림의 요소 정렬 |
 
-   * 최종 연산
-   | 최종 연산 | 설명 ||
-   | :--- | :--- ||
-   | `void forEach(Consumer <? super T> action)` | 각 요소에 지정된 작업 수행 ||
-   | `long count()` | 스트림의 요소 개수 ||
-   | `Optional < T > max (Comparator <? super T> comparator)` | 스트림의 최댓값 ||
-   | `Optional < T > min (Comparator <? super T> comparator)`	 | 스트림의 최솟값 ||
-   | `Optional < T > findAny()` | 아무거나 하나 ||
-   | `Optional < T > findFirst()` | 스트림의 첫번째 요소 ||
-   | `Optional < T > reduce (BinaryOperator < T > accumulator)` | 스트림의 요소를 하나씩 줄여가면서 계산하고 최종결과를 반환 ||
-   | `boolean allMatch(Pradicate < T > p)` | 모두 만족하는지? ||
-   | `boolean anyMatch(Pradicate < T > p)` | 하나라도 만족하는지? ||
-   | `boolean noneMatch(Pradicate < T > p)` | 모두 만족하지 않는지? ||
-   | `Object[] toArray()` | 스트림의 모든 요소를 배열로 반환 ||
+   * 최종 연산  
+
+   | 최종 연산 | 설명 |
+   | :--- | :--- |
+   | `void forEach(Consumer <? super T> action)` | 각 요소에 지정된 작업 수행 |
+   | `long count()` | 스트림의 요소 개수 |
+   | `Optional < T > max (Comparator <? super T> comparator)` | 스트림의 최댓값 |
+   | `Optional < T > min (Comparator <? super T> comparator)`	 | 스트림의 최솟값 |
+   | `Optional < T > findAny()` | 아무거나 하나 |
+   | `Optional < T > findFirst()` | 스트림의 첫번째 요소 |
+   | `Optional < T > reduce (BinaryOperator < T > accumulator)` | 스트림의 요소를 하나씩 줄여가면서 계산하고 최종결과를 반환 |
+   | `boolean allMatch(Pradicate < T > p)` | 모두 만족하는지? |
+   | `boolean anyMatch(Pradicate < T > p)` | 하나라도 만족하는지? |
+   | `boolean noneMatch(Pradicate < T > p)` | 모두 만족하지 않는지? |
+   | `Object[] toArray()` | 스트림의 모든 요소를 배열로 반환 |
