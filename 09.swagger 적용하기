@@ -1,0 +1,40 @@
+## Swagger 적용하기
+
+이거 적용하는데 13초 정도 걸린거 같음.
+
+아래 의존성 추가.
+
+```yaml
+compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.5.0'
+compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.5.0'
+```
+
+아래의 설정파일 추가.
+
+```java
+package codesquad.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())// 모든 RequestMapping 추출
+                .paths(PathSelectors.ant("/api/**")) // 그중에 /api/** 인 URL 필터
+                .build();
+    }
+}
+```
+
+이제 실행 후에 localhost:8080/swagger-ui.html 로 접속해보자. 끝
